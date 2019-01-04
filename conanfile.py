@@ -15,7 +15,7 @@ class LibstyxeConan(ConanFile):
     url = "https://github.com/abbyssoul/conan-%s" % name
     homepage = "https://github.com/abbyssoul/%s" % name
     description = "9P2000 file protocol implementation"
-    topics = ("9P", "9P2000", "modern C++")
+    topics = ("9P", "9P2000", "Modern C++")
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False], "fPIC": [True, False]}
     default_options = "shared=False", "fPIC=True"
