@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Conan recipe package for libsolace
+"""Conan recipe package for libstyxe
 """
 from conans import ConanFile, CMake, tools
 
@@ -9,10 +9,9 @@ from conans import ConanFile, CMake, tools
 class LibstyxeConan(ConanFile):
     name = "libstyxe"
     version = "0.1"
-    license = "A"
     license = "Apache-2.0"
     author = "Ivan Ryabov <abbyssoul@gmail.com>"
-    url = "https://github.com/abbyssoul/conan-%s" % name
+    url = "https://github.com/abbyssoul/conan-%s.git" % name
     homepage = "https://github.com/abbyssoul/%s" % name
     description = "9P2000 file protocol implementation"
     topics = ("9P", "9P2000", "Modern C++")
@@ -20,9 +19,6 @@ class LibstyxeConan(ConanFile):
     options = {"shared": [True, False], "fPIC": [True, False]}
     default_options = "shared=False", "fPIC=True"
     generators = "cmake"
-    # exports_sources = "src/*"
-
-    _src_url = "https://github.com/abbyssoul/%s" % name
 
     def config_options(self):
         if self.settings.os == "Windows":
@@ -30,9 +26,9 @@ class LibstyxeConan(ConanFile):
 
     def source(self):
 #        git = tools.Git()
-#        git.clone(self._src_url)
+#        git.clone(self.homepage)
         # TODO: Only clone tagged vesion: tags/self.version
-        self.run("git clone --depth 1 --recurse-submodules {}".format(self._src_url))
+        self.run("git clone --depth 1 --recurse-submodules {}".format(self.homepage))
 
     def build(self):
         cmake = CMake(self, parallel=True)
