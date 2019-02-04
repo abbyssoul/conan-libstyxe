@@ -8,13 +8,13 @@ from conans import ConanFile, CMake, tools
 
 class LibstyxeConan(ConanFile):
     name = "libstyxe"
-    version = "0.1"
+    version = "0.2"
     license = "Apache-2.0"
     author = "Ivan Ryabov <abbyssoul@gmail.com>"
     url = "https://github.com/abbyssoul/conan-%s.git" % name
     homepage = "https://github.com/abbyssoul/%s" % name
-    description = "9P2000 file protocol implementation"
-    topics = ("9P", "9P2000", "Modern C++")
+    description = "9P2000 file protocol parser implementation"
+    topics = ("9P", "9P2000", "plan9", "styx", "protocol", "parser", "distributed", "distributed-file-system", "9pfs", "Modern C++")
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False], "fPIC": [True, False]}
     default_options = "shared=False", "fPIC=True"
