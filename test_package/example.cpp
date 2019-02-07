@@ -1,13 +1,12 @@
-#include "styxe/9p2000.hpp"
-#include "styxe/version.hpp"
+#include "styxe/styxe.hpp"
 #include <cstdlib>  // EXIT_SUCCESS/EXIT_FAILURE
 
 
 int main() {
-    styxe::Protocol proc(1024);
+    styxe::Parser proc{1024};
 
-    return (styxe::Protocol::headerSize() > 0 &&
-            styxe::Protocol::headerSize() < proc.maxPossibleMessageSize())
+    return (styxe::headerSize() > 0 &&
+            styxe::headerSize() < proc.maxPossibleMessageSize())
                 ? EXIT_SUCCESS
                 : EXIT_FAILURE;
 }
