@@ -8,7 +8,6 @@ from conans import ConanFile, CMake, tools
 
 class LibstyxeConan(ConanFile):
     name = "libstyxe"
-    version = "0.2"
     license = "Apache-2.0"
     author = "Ivan Ryabov <abbyssoul@gmail.com>"
     url = "https://github.com/abbyssoul/conan-%s.git" % name
@@ -20,7 +19,8 @@ class LibstyxeConan(ConanFile):
     default_options = "shared=False", "fPIC=True"
     generators = "cmake"
 
-    requires = "libsolace/0.1.3@abbyssoul/stable"
+    version = "0.3"
+    requires = "libsolace/0.2.3@abbyssoul/stable"
 
 
     def config_options(self):
@@ -30,8 +30,7 @@ class LibstyxeConan(ConanFile):
     def source(self):
 #        git = tools.Git()
 #        git.clone(self.homepage)
-        # TODO: Only clone tagged vesion: tags/self.version
-        self.run("git clone --depth 1 --recurse-submodules {}".format(self.homepage))
+        self.run("git clone --branch {} --depth 1 --recurse-submodules {}".format(self.version, self.homepage))
 
     def build(self):
         cmake = CMake(self, parallel=True)
