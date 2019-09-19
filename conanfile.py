@@ -19,8 +19,8 @@ class LibstyxeConan(ConanFile):
     default_options = "shared=False", "fPIC=True"
     generators = "cmake"
 
-    version = "0.3"
-    requires = "libsolace/0.2.3@abbyssoul/stable"
+    version = "0.4"
+    requires = "libsolace/0.3.3@abbyssoul/stable"
 
 
     def config_options(self):
